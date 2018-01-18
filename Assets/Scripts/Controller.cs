@@ -18,38 +18,44 @@ public class Controller : MonoBehaviour
     void Update()
     {
         //jumping
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
-            animator.SetTrigger("jump trigger");
+            animator.SetBool("isJumping",true);
 
-        }
-        //left side walking
-        if(Input.GetKeyDown(KeyCode.A))
+        }else
         {
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            animator.SetBool("isWalking", true);
+            animator.SetBool("isJumping", false);
         }
+
+        //left side walking
         if(Input.GetKey(KeyCode.A))
         {
-            transform.localPosition += new Vector3(-0.01f, 0f, 0f);
-        }
-        if(Input.GetKeyUp(KeyCode.A))
-        {
-            animator.SetBool("isWalking", false);
-        }
-        //right side walking
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            transform.localScale = new Vector3(-1*Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            //Change sprite direction if needed
+            if (transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
             animator.SetBool("isWalking", true);
+            transform.localPosition -= new Vector3(0.05f, 0f, 0f);
         }
+
+        //right side walking
         if (Input.GetKey(KeyCode.D))
         {
-            transform.localPosition += new Vector3(0.01f, 0f, 0f);
+            //Change sprite direction if needed
+            if (transform.localScale.x > 0)
+            {
+                transform.localScale = new Vector3(-1 * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+            animator.SetBool("isWalking", true);
+            transform.localPosition += new Vector3(0.05f, 0f, 0f);
         }
-        if (Input.GetKeyUp(KeyCode.D))
+
+        //stop walking
+        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
             animator.SetBool("isWalking", false);
         }
+
     }
 }
