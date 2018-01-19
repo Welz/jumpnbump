@@ -169,11 +169,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5007732, guid: 2c70665c11266425294518fa7677cf8e, type: 2}
       propertyPath: m_GravityScale
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5007732, guid: 2c70665c11266425294518fa7677cf8e, type: 2}
       propertyPath: m_BodyType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6134762, guid: 2c70665c11266425294518fa7677cf8e, type: 2}
+      propertyPath: m_EdgeRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6134762, guid: 2c70665c11266425294518fa7677cf8e, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007732, guid: 2c70665c11266425294518fa7677cf8e, type: 2}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c70665c11266425294518fa7677cf8e, type: 2}
@@ -750,6 +762,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b46dca0ac5e6149a779eddab93a535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 5
+  movingForce: 0.1
+  grounded: 0
 --- !u!1 &1987258705
 GameObject:
   m_ObjectHideFlags: 0

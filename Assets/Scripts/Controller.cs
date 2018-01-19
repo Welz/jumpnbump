@@ -5,23 +5,29 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
 
-    private Animator animator;
+    public float jumpForce = 10.0f;
+    public float movingForce = 5.0f;
 
+    private Animator animator;
+    private Rigidbody2D rb;
+    public bool grounded = false; //change back to private
+    
 
     // Use this for initialization
     void Start()
     {
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         //jumping
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && grounded)
         {
             animator.SetBool("isJumping",true);
-
+            rb.velocity += new Vector2(0f, jumpForce);
         }else
         {
             animator.SetBool("isJumping", false);
@@ -36,7 +42,7 @@ public class Controller : MonoBehaviour
                 transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             }
             animator.SetBool("isWalking", true);
-            transform.localPosition -= new Vector3(0.05f, 0f, 0f);
+            rb.position -= new Vector2(movingForce, 0f);
         }
 
         //right side walking
@@ -48,7 +54,7 @@ public class Controller : MonoBehaviour
                 transform.localScale = new Vector3(-1 * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             }
             animator.SetBool("isWalking", true);
-            transform.localPosition += new Vector3(0.05f, 0f, 0f);
+            rb.position += new Vector2(movingForce, 0f);
         }
 
         //stop walking
@@ -58,4 +64,18 @@ public class Controller : MonoBehaviour
         }
 
     }
+
+    // This part detects whether or not the object is grounded and stores it in a variable.
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //TO DO: add tags to differentiate borders from ground.
+        grounded = true;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        grounded = false;
+    }
+
 }
