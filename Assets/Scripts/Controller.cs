@@ -23,18 +23,19 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetFloat("velocityY", rb.velocity.y);
         //jumping
         if (Input.GetKey(KeyCode.W) && grounded)
         {
             animator.SetBool("isJumping",true);
             rb.velocity += new Vector2(0f, jumpForce);
-        }else
+        }else if (grounded)
         {
             animator.SetBool("isJumping", false);
         }
 
         //left side walking
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.A) && grounded)
         {
             //Change sprite direction if needed
             if (transform.localScale.x < 0)
@@ -46,7 +47,7 @@ public class Controller : MonoBehaviour
         }
 
         //right side walking
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && grounded)
         {
             //Change sprite direction if needed
             if (transform.localScale.x > 0)

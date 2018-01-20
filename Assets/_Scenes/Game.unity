@@ -187,6 +187,22 @@ Prefab:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 21200450, guid: 2c70665c11266425294518fa7677cf8e, type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200450, guid: 2c70665c11266425294518fa7677cf8e, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200450, guid: 2c70665c11266425294518fa7677cf8e, type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500450, guid: 2c70665c11266425294518fa7677cf8e, type: 2}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c70665c11266425294518fa7677cf8e, type: 2}
   m_IsPrefabParent: 0
