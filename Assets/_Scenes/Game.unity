@@ -203,6 +203,19 @@ Prefab:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 21200450, guid: 2c70665c11266425294518fa7677cf8e, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 63b6e8cb164fc4d66a085344d8327ce4,
+        type: 3}
+    - target: {fileID: 5007732, guid: 2c70665c11266425294518fa7677cf8e, type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6134762, guid: 2c70665c11266425294518fa7677cf8e, type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c70665c11266425294518fa7677cf8e, type: 2}
   m_IsPrefabParent: 0
@@ -778,7 +791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b46dca0ac5e6149a779eddab93a535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 5
+  jumpForce: 3
   movingForce: 0.1
   grounded: 0
 --- !u!1 &1987258705

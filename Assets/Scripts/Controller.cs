@@ -21,7 +21,7 @@ public class Controller : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         animator.SetFloat("velocityY", rb.velocity.y);
         //jumping
