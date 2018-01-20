@@ -27,11 +27,11 @@ public class Controller : MonoBehaviour
         //jumping
         if (Input.GetKey(KeyCode.W) && grounded)
         {
-            animator.SetBool("isJumping",true);
+            animator.SetBool("isGrounded",false);
             rb.velocity += new Vector2(0f, jumpForce);
         }else if (grounded)
         {
-            animator.SetBool("isJumping", false);
+            animator.SetBool("isGrounded", true);
         }
 
         //left side walking
